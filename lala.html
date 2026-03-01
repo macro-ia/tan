@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For J ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#ffd6e7,#ffe9c9,#fff6f0);
+    font-family: 'Segoe UI', sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+    padding:50px;
+    border-radius:25px;
+    width:420px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.15);
+    animation:fade 2s ease;
+}
+
+h1{
+    color:#ff6b9a;
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#555;
+    font-size:16px;
+    margin-bottom:25px;
+}
+
+.msg{
+    font-size:20px;
+    color:#333;
+    min-height:70px;
+    transition:0.5s;
+    line-height:1.6;
+}
+
+button{
+    margin-top:30px;
+    padding:12px 26px;
+    border:none;
+    border-radius:30px;
+    background:#ff8fb1;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff6b9a;
+    transform:scale(1.05);
+}
+
+/* floating hearts */
+.heart{
+    position:absolute;
+    color:#ff9ecb;
+    font-size:18px;
+    animation:float 7s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh); opacity:1;}
+    to{transform:translateY(-10vh); opacity:0;}
+}
+
+@keyframes fade{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Hey Juniya!! ❤️</h1>
+    <div class="subtitle">A small reminder from me to you</div>
+
+    <div class="msg" id="message">
+       Don't worry it's a "private" website and it's just a message from my side and ofcourse private means no one will see it untill someone else has the link so be carefull and yeah you can save the link or write it somewhere if u want to keep it...it's all upto you. 
+    </div>
+
+    <button onclick="newMsg()">NEXT▶️ </button>
+</div>
+
+<script>
+let messages = [
+".",
+"I hope you and your family are always happy and safe.",
+"Study well and become an example to everyone as ur sister.",
+"I know we're not in a relationship terms now and There's no communication between us, yet you still live in my heart and I don't want us to become strangers again... but yeah also depends on THE UNIVERSE and GOD",
+"Even if life gets busy, take care of yourself.",
+"You’re the reason I smile at my screen .",
+"Keep smiling everyday even if life gets Tough or difficult",
+"That's all… just a small message from my side and i hope you like it.",
+"Bye… ILY 💗"
+];
+
+let index = 0;
+
+function newMsg(){
+index++;
+
+if(index < messages.length){
+document.getElementById("message").innerHTML = messages[index];
+}
+else{
+cinematicEnding();
+}
+}
+
+function cinematicEnding(){
+document.querySelector("button").style.display="none";
+
+let msgBox=document.getElementById("message");
+
+msgBox.style.transition="1.5s";
+msgBox.style.opacity="0";
+
+setTimeout(()=>{
+msgBox.innerHTML="No matter where life goes…<br>I'll always silently wish the best for you ❤️";
+msgBox.style.opacity="1";
+msgBox.style.fontSize="22px";
+},1200);
+}
+
+// floating hearts
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.innerHTML="💗";
+heart.classList.add("heart");
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},7000);
+},600);
+</script>
+
+</body>
+</html>
